@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>JARVIS - Advanced AI Virtual Assistant</title>
+    <meta name="description" content="Advanced AI-powered virtual assistant with voice recognition and Groq AI integration">
+    <link rel="shortcut icon" href="avatar.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#0a0a0a">
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="status-indicator">
+                <div class="status-dot" id="statusDot"></div>
+                <span class="status-text" id="statusText">Ready</span>
+            </div>
+            <h1 class="title">J A R V I S</h1>
+            <p class="subtitle">Advanced AI Assistant</p>
+            
+            <!-- Settings Button -->
+            <button class="settings-btn" id="settingsBtn" aria-label="Settings">
+                <i class="fas fa-cog"></i>
+            </button>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <div class="avatar-container">
+                <div class="avatar-wrapper">
+                    <img src="giphy.gif" alt="JARVIS Avatar" class="avatar" id="avatar">
+                    <div class="pulse-ring" id="pulseRing"></div>
+                </div>
+            </div>
+
+            <div class="interaction-area">
+                <div class="voice-input">
+                    <button class="voice-btn" id="voiceBtn" aria-label="Start voice recognition">
+                        <i class="fas fa-microphone" id="micIcon"></i>
+                    </button>
+                    <div class="input-display">
+                        <p class="content" id="content">Click the microphone to start</p>
+                        <div class="listening-indicator" id="listeningIndicator">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quick-actions">
+                    <button class="action-btn" data-command="time">
+                        <i class="fas fa-clock"></i>
+                        <span>Time</span>
+                    </button>
+                    <button class="action-btn" data-command="weather">
+                        <i class="fas fa-cloud-sun"></i>
+                        <span>Weather</span>
+                    </button>
+                    <button class="action-btn" data-command="news">
+                        <i class="fas fa-newspaper"></i>
+                        <span>News</span>
+                    </button>
+                    <button class="action-btn" data-command="joke">
+                        <i class="fas fa-laugh"></i>
+                        <span>Joke</span>
+                    </button>
+                    <button class="action-btn" data-command="music">
+                        <i class="fas fa-music"></i>
+                        <span>Music</span>
+                    </button>
+                    <button class="action-btn" data-command="email">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email</span>
+                    </button>
+                </div>
+
+                <!-- Voice Commands Display -->
+                <div class="voice-commands">
+                    <h3>Voice Commands</h3>
+                    <div class="commands-grid">
+                        <span class="command-tag">"What time is it?"</span>
+                        <span class="command-tag">"Tell me a joke"</span>
+                        <span class="command-tag">"Open Google"</span>
+                        <span class="command-tag">"What's the weather?"</span>
+                        <span class="command-tag">"Play music"</span>
+                        <span class="command-tag">"Send email"</span>
+                        <span class="command-tag">"Set reminder"</span>
+                        <span class="command-tag">"Take screenshot"</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Command History -->
+        <div class="history-container" id="historyContainer">
+            <h3>Recent Commands</h3>
+            <div class="history-list" id="historyList"></div>
+            <button class="clear-history-btn" id="clearHistoryBtn">Clear History</button>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Powered by Advanced AI • Voice Recognition Enabled</p>
+            <button class="install-btn" id="installBtn" style="display: none;">Install App</button>
+        </footer>
+    </div>
+
+    <!-- Settings Panel -->
+    <div class="settings-panel" id="settingsPanel">
+        <div class="settings-header">
+            <h2>JARVIS Settings</h2>
+            <button class="close-btn" id="closeSettings">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="settings-content">
+            <div class="setting-group">
+                <h3>Voice Settings</h3>
+                <div class="setting-item">
+                    <label for="voiceSelect">Voice:</label>
+                    <select id="voiceSelect" class="setting-input">
+                        <option value="default">Default</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <label for="voiceRate">Speed:</label>
+                    <input type="range" id="voiceRate" min="0.5" max="2" step="0.1" value="1" class="setting-slider">
+                    <span id="rateValue">1.0</span>
+                </div>
+                <div class="setting-item">
+                    <label for="voicePitch">Pitch:</label>
+                    <input type="range" id="voicePitch" min="0.5" max="2" step="0.1" value="1" class="setting-slider">
+                    <span id="pitchValue">1.0</span>
+                </div>
+            </div>
+
+            <div class="setting-group">
+                <h3>Appearance</h3>
+                <div class="setting-item">
+                    <label for="themeSelect">Theme:</label>
+                    <select id="themeSelect" class="setting-input">
+                        <option value="dark">Dark</option>
+                        <option value="light">Light</option>
+                        <option value="cyber">Cyber</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <label for="animationToggle">Animations:</label>
+                    <input type="checkbox" id="animationToggle" checked class="setting-checkbox">
+                </div>
+            </div>
+
+            <div class="setting-group">
+                <h3>AI Settings</h3>
+                <div class="setting-item">
+                    <label for="aiModel">AI Model:</label>
+                    <select id="aiModel" class="setting-input">
+                        <option value="llama3-8b-8192">Llama3-8b</option>
+                        <option value="mixtral-8x7b-32768">Mixtral-8x7b</option>
+                        <option value="gemma-7b-it">Gemma-7b</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <label for="aiTemperature">Creativity:</label>
+                    <input type="range" id="aiTemperature" min="0" max="1" step="0.1" value="0.7" class="setting-slider">
+                    <span id="tempValue">0.7</span>
+                </div>
+            </div>
+
+            <div class="setting-group">
+                <h3>API Keys</h3>
+                <div class="setting-item">
+                    <label for="weatherApiKey">Weather API:</label>
+                    <input type="password" id="weatherApiKey" placeholder="OpenWeatherMap API Key" class="setting-input">
+                </div>
+                <div class="setting-item">
+                    <label for="newsApiKey">News API:</label>
+                    <input type="password" id="newsApiKey" placeholder="News API Key" class="setting-input">
+                </div>
+                <div class="setting-item">
+                    <label for="groqApiKey">Groq API Key:</label>
+                    <input type="password" id="groqApiKey" placeholder="Groq API Key" class="setting-input">
+                </div>
+            </div>
+
+            <div class="setting-actions">
+                <button class="save-btn" id="saveSettings">Save Settings</button>
+                <button class="reset-btn" id="resetSettings">Reset to Default</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <p>Initializing JARVIS...</p>
+    </div>
+
+    <!-- Notification System -->
+    <div class="notification-container" id="notificationContainer"></div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

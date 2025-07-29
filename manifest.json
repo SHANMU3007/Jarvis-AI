@@ -1,0 +1,61 @@
+{
+  "name": "JARVIS - Advanced AI Assistant",
+  "short_name": "JARVIS",
+  "description": "Advanced AI-powered virtual assistant with voice recognition and Groq AI integration",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#00d4ff",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "avatar.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "avatar.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["productivity", "utilities"],
+  "screenshots": [
+    {
+      "src": "avatar.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Voice Commands",
+      "short_name": "Voice",
+      "description": "Start voice recognition",
+      "url": "/?action=voice",
+      "icons": [
+        {
+          "src": "avatar.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Settings",
+      "short_name": "Settings",
+      "description": "Open settings panel",
+      "url": "/?action=settings",
+      "icons": [
+        {
+          "src": "avatar.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+} 
