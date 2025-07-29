@@ -5,10 +5,11 @@ A modern, AI-powered virtual assistant with voice recognition capabilities and G
 ## ✨ Features
 
 ### 🤖 AI-Powered Intelligence
-- **Groq AI Integration**: Powered by Llama3-8b model for intelligent responses
+- **Multi-Provider AI**: Support for both Groq (Llama3-8b, Mixtral, Gemma) and OpenAI (GPT-3.5, GPT-4)
 - **Natural Language Processing**: Understands and responds to complex queries
 - **Contextual Conversations**: Maintains context and provides relevant answers
 - **Smart Fallbacks**: Uses AI when specific APIs are unavailable
+- **Model Selection**: Choose from different AI models based on your needs
 
 ### 🎯 Core Functionality
 - **Voice Recognition**: Advanced speech-to-text with real-time feedback
@@ -29,6 +30,10 @@ A modern, AI-powered virtual assistant with voice recognition capabilities and G
 - **Web Searches**: Google search integration
 - **Wikipedia**: Direct Wikipedia article searches
 - **Jokes**: Built-in joke generator
+- **Music Control**: Spotify integration for music playback
+- **Email Assistant**: Help compose and send emails
+- **Reminder System**: Set and manage reminders with voice commands
+- **Screenshot**: Screen capture functionality (browser-based)
 - **Quick Actions**: One-click buttons for common tasks
 - **Help System**: Built-in command help and guidance
 
@@ -37,8 +42,40 @@ A modern, AI-powered virtual assistant with voice recognition capabilities and G
 - **Error Handling**: Comprehensive error handling and user feedback
 - **Modular Architecture**: Clean, maintainable code structure
 - **Cross-browser Support**: Works on all modern browsers
-- **API Integration**: Groq AI, OpenWeatherMap, and News APIs
-- **PWA Support**: Installable as a web app
+- **API Integration**: Groq AI, OpenAI, Spotify, OpenWeatherMap, and News APIs
+- **PWA Support**: Installable as a web app with offline capabilities
+- **Local Storage**: Persistent settings and command history
+- **Service Worker**: Offline caching and background sync
+
+## 🎯 Voice Commands
+
+### Basic Commands
+- **"What time is it?"** - Get current time
+- **"What's the date?"** - Get current date
+- **"Tell me a joke"** - Get a random joke
+- **"What's the weather?"** - Get weather information
+- **"Get the latest news"** - Get news updates
+
+### Music Commands (Spotify)
+- **"Play [song/artist]"** - Play specific music
+- **"Pause music"** - Pause playback
+- **"Skip track"** - Next song
+- **"Previous track"** - Previous song
+
+### Productivity Commands
+- **"Remind me to [task] at [time]"** - Set reminders
+- **"Send email to [person] about [subject]"** - Compose email
+- **"Search web for [topic]"** - Web search
+- **"Wikipedia [topic]"** - Wikipedia search
+- **"Take screenshot"** - Capture screen
+
+### System Commands
+- **"Open settings"** - Open settings panel
+- **"Clear history"** - Clear command history
+- **"Help"** - Show available commands
+
+### AI Conversations
+- Ask anything and JARVIS will use AI to provide intelligent responses!
 
 ## 🚀 Deployment & Sharing Options
 
@@ -68,6 +105,38 @@ git push -u origin main
 5. Click **Save**
 
 Your JARVIS will be available at: `https://YOUR_USERNAME.github.io/jarvis-ai`
+
+## ⚙️ Configuration
+
+### Required API Keys
+To use all features, you'll need to add your API keys in the settings:
+
+1. **Groq API Key** (Recommended)
+   - Get from: https://console.groq.com/
+   - Supports: Llama3-8b, Mixtral-8x7b, Gemma-7b
+
+2. **OpenAI API Key** (Alternative)
+   - Get from: https://platform.openai.com/
+   - Supports: GPT-3.5 Turbo, GPT-4
+
+3. **Spotify Client ID** (Music features)
+   - Get from: https://developer.spotify.com/
+   - Enables music playback control
+
+4. **OpenWeatherMap API Key** (Weather features)
+   - Get from: https://openweathermap.org/api
+   - Provides real-time weather data
+
+5. **News API Key** (News features)
+   - Get from: https://newsapi.org/
+   - Provides latest news updates
+
+### Adding API Keys
+1. Open JARVIS in your browser
+2. Click the settings icon (⚙️)
+3. Enter your API keys in the respective fields
+4. Click "Save Settings"
+5. Restart JARVIS for changes to take effect
 
 ### 2. **Netlify (Free & Professional)**
 

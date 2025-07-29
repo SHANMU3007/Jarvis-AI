@@ -165,11 +165,20 @@
             <div class="setting-group">
                 <h3>AI Settings</h3>
                 <div class="setting-item">
+                    <label for="aiProvider">AI Provider:</label>
+                    <select id="aiProvider" class="setting-input">
+                        <option value="groq">Groq (Recommended)</option>
+                        <option value="openai">OpenAI</option>
+                    </select>
+                </div>
+                <div class="setting-item">
                     <label for="aiModel">AI Model:</label>
                     <select id="aiModel" class="setting-input">
                         <option value="llama3-8b-8192">Llama3-8b</option>
                         <option value="mixtral-8x7b-32768">Mixtral-8x7b</option>
                         <option value="gemma-7b-it">Gemma-7b</option>
+                        <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
+                        <option value="gpt-4">GPT-4</option>
                     </select>
                 </div>
                 <div class="setting-item">
@@ -192,6 +201,14 @@
                 <div class="setting-item">
                     <label for="groqApiKey">Groq API Key:</label>
                     <input type="password" id="groqApiKey" placeholder="Groq API Key" class="setting-input">
+                </div>
+                <div class="setting-item">
+                    <label for="openaiApiKey">OpenAI API Key:</label>
+                    <input type="password" id="openaiApiKey" placeholder="OpenAI API Key" class="setting-input">
+                </div>
+                <div class="setting-item">
+                    <label for="spotifyClientId">Spotify Client ID:</label>
+                    <input type="password" id="spotifyClientId" placeholder="Spotify Client ID" class="setting-input">
                 </div>
             </div>
 

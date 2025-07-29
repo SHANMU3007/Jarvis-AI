@@ -346,6 +346,11 @@ body {
     font-size: 0.8125rem;
     color: var(--text-secondary);
     font-weight: 500;
+    transition: var(--transition);
+}
+
+.action-btn:hover span {
+    color: var(--text-primary);
 }
 
 /* Voice Commands Display */
